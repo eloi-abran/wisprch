@@ -1,4 +1,4 @@
-# Maintainer: User <user@example.com>
+# Maintainer: Eloi Abran <abran.labs@gmail.com>
 pkgname=wisprch
 pkgver=0.1.0
 pkgrel=1
@@ -8,16 +8,16 @@ url="https://github.com/eloi-abran/wisprch"
 license=('MIT')
 depends=('python' 'python-openai' 'python-numpy' 'python-scipy' 'python-gobject' 'wl-clipboard' 'wtype' 'portaudio') # python-sounddevice is in AUR, portaudio is the system dep
 makedepends=('python-build' 'python-installer' 'python-wheel' 'python-setuptools')
-source=("git+file://${PWD}")
+source=("repo_source::git+file://${PWD}")
 sha256sums=('SKIP')
 
 build() {
-    cd "$pkgname"
+    cd "repo_source"
     /usr/bin/python -m build --wheel --no-isolation
 }
 
 package() {
-    cd "$pkgname"
+    cd "repo_source"
     /usr/bin/python -m installer --destdir="$pkgdir" dist/*.whl
 
     # Install systemd user service
