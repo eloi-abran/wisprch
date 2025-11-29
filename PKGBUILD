@@ -23,9 +23,6 @@ package() {
     # Install systemd user service
     install -Dm644 systemd/wisprch.service "$pkgdir/usr/lib/systemd/user/wisprch.service"
     
-    # Install default config (optional, maybe as example)
-    install -Dm644 config/wisprch.conf "$pkgdir/usr/share/doc/$pkgname/wisprch.conf.example"
-    
     # Install License
     install -Dm644 LICENCE.md "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
