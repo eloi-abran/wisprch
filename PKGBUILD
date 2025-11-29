@@ -13,12 +13,12 @@ sha256sums=('SKIP')
 
 build() {
     cd "$pkgname"
-    python -m build --wheel --no-isolation
+    /usr/bin/python -m build --wheel --no-isolation
 }
 
 package() {
     cd "$pkgname"
-    python -m installer --destdir="$pkgdir" dist/*.whl
+    /usr/bin/python -m installer --destdir="$pkgdir" dist/*.whl
 
     # Install systemd user service
     install -Dm644 systemd/wisprch.service "$pkgdir/usr/lib/systemd/user/wisprch.service"
