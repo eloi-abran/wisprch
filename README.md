@@ -19,12 +19,23 @@
 
 ### Manual (Arch Linux)
 
-1. Clone the repository and build the package:
-```bash
-git clone https://github.com/eloi-abran/wisprch.git
-cd wisprch
-makepkg -si
-```
+Since `python-sounddevice` is not in the official Arch repositories, you must install it manually (via pip or AUR) before or after installing the package.
+
+1.  **Install Runtime Dependency:**
+    ```bash
+    # Recommended: Use an AUR helper (handles system python automatically)
+    yay -S python-sounddevice
+
+    # Alternative: Manual pip install (must target system python)
+    # sudo /usr/bin/python -m pip install sounddevice --break-system-packages
+    ```
+
+2.  **Install Wisprch:**
+    ```bash
+    git clone https://github.com/eloi-abran/wisprch.git
+    cd wisprch
+    makepkg -si
+    ```
    *This will install all necessary dependencies (python, wl-clipboard, wtype) and the systemd service.*
 
 ## Getting Started
